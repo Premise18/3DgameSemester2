@@ -4,13 +4,13 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int NumberOfTomatoes { get; private set; }
+    public int NumberOfBullets { get; private set; }
 
-    public UnityEvent<PlayerInventory> OnTomatoCollected;
+    public UnityEvent<PlayerInventory> OnBulletCollected;
 
-    public void TomatoCollected()
+    public void BulletCollected()
     {
-        NumberOfTomatoes++;
-        OnTomatoCollected.Invoke(this);
+        NumberOfBullets++;
+        OnBulletCollected.Invoke(this);
     }
 }

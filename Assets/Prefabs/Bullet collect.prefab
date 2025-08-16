@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8816410652851849234}
   - component: {fileID: 8340962299738071534}
   m_Layer: 0
-  m_Name: Tomato
+  m_Name: Bullet collect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

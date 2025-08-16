@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class Tomato : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
@@ -8,7 +9,7 @@ public class Tomato : MonoBehaviour
 
         if (playerInventory != null )
         {
-            playerInventory.TomatoCollected();
+            playerInventory.BulletCollected();
             gameObject.SetActive(false);
         }
     }

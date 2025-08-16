@@ -4,16 +4,16 @@ using System.Collections;
 
 public class InventoryUI : MonoBehaviour
 {
-    private TextMeshProUGUI tomatoText;
+    private TextMeshProUGUI BulletText;
 
     void Start()
     {
-        tomatoText = GetComponent<TextMeshProUGUI>();
+        BulletText = GetComponent<TextMeshProUGUI>();
     }
 
-    public void UpdateTomatoText(PlayerInventory playerInventory)
+    public void UpdateBulletText(PlayerInventory playerInventory)
     {
-        tomatoText.text = playerInventory.NumberOfTomatoes.ToString();
+        BulletText.text = playerInventory.NumberOfBullets.ToString();
     }
 
 
