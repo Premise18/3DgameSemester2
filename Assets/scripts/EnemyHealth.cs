@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -45,5 +47,8 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("{gameObject.name} has died!");
         Destroy(gameObject);
+
+        // Load Game Over scene by name
+        SceneManager.LoadScene("GameOverScene");
     }
 }
