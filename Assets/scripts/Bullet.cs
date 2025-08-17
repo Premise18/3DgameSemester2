@@ -2,19 +2,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage;
+    public float damage = 20f;
+    public float lifetime = 3f;
 
-    private void Start()
+    void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, lifetime); // auto destroy
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Enemy"))
+        // Check enemy health on the object or its parent
+        EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+        if (enemy == null)
         {
-            other.GetComponent<EnemyStats>().TakeDamage(damage);
-            Destroy(gameObject);
+            enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
         }
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+            Debug.Log("Hit enemy! Damage applied: " + damage);
+        }
+
+        Destroy(gameObject); // destroy bullet on any hit
     }
 }
