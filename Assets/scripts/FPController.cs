@@ -61,6 +61,28 @@ public class FPController : MonoBehaviour
         lookInput = context.ReadValue<Vector2>();
     }
 
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+           Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        if(bulletPrefab !=null && gunPoint != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, gunPoint.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+            if(rb != null)
+            {
+                rb.AddForce(gunPoint.forward * 1000f); 
+            }
+        }
+    }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && controller.isGrounded)
