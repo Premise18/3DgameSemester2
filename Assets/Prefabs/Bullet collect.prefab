@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2862630096460080244}
   - component: {fileID: 2770623380994629666}
   - component: {fileID: 7604869159450042036}
-  - component: {fileID: 8816410652851849234}
+  - component: {fileID: 7197399821973294993}
   - component: {fileID: 8340962299738071534}
   m_Layer: 0
   m_Name: Bullet collect
@@ -88,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8816410652851849234
+--- !u!114 &7197399821973294993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1020584622819592050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340669f6bbbd4ba48a4fa00d86cc40fe, type: 3}
+  m_Script: {fileID: 11500000, guid: f256fc8df0d9a744da2331f0ae241e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &8340962299738071534
