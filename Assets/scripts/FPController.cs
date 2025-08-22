@@ -15,7 +15,11 @@ public class FPController : MonoBehaviour
 
     [Header("Shooting")]
     public GameObject bulletPrefab;
-    public Transform gunPoint;
+    public Camera fpsCam;         // Camera used for raycasting
+    public float damage = 20f;    // Damage dealt to enemy
+    public float range = 100f;    // Range of shooting
+    public Transform shootPoint;     // Empty GameObject at gun barrel
+    public float bulletForce = 50f;
 
     [Header("Crouch Settings")]
     public float crouchHeight = 1f;
@@ -68,6 +72,33 @@ public class FPController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.AddForce(shootPoint.forward * bulletForce, ForceMode.Impulse);
+
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
+    }
+
     public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.performed)
